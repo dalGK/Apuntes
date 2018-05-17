@@ -11,4 +11,46 @@ precio = coches[i].getPrecio();     // si es mas pequeño lo guarda en precio
 			}
 		}
 		return indice;
+}
+	public static void main(String[] args) {
+		
+		
+		Scanner entrada = new Scanner (System.in);
+		String marca,modelo;
+		int precio,numVehiculos,icocheMasbarato;
+
+		System.out.println("Cuantos coches quieres introducir");
+		numVehiculos = entrada.nextInt();
+		
+		// Creamos los objetos para los coches;
+		
+		Vehiculo coches[] = new Vehiculo[numVehiculos];
+		
+		for(int i=0;i<coches.length;i++) {
+			entrada.nextLine();
+			System.out.println("Introduce las caracteristicas del coche nº "+(1+i));
+			System.out.println("Introduce la marca: ");
+			marca = entrada.nextLine();
+			System.out.println("Introduce el modelo: ");
+			modelo = entrada.nextLine();
+			System.out.println("Introduzca precio: ");
+			precio = entrada.nextInt(); 
+			
+			coches[i] = new Vehiculo(marca, modelo, precio);
+			
+		}
+		icocheMasbarato = cocheMasBarato(coches);
+		
+		System.out.println("El coche mas barato es: ");
+		System.out.println(coches[cocheMasBarato(coches)].mostrarDatos());
 	
+
+		
+
+
+
+
+
+	}
+
+}
